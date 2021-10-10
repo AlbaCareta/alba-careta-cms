@@ -9,11 +9,32 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+$primary: (
+  Main: #ffffff,
+  Light: #ffffff,
+  Dark: #cccccc,
+  contrast: (
+    Main: #013964,
+    Light: #013964,
+    Dark: #013964
+  )
+);
+$accent: (
+  Main: #013964,
+  Light: #3e6392,
+  Dark: #001339,
+  contrast: (
+    Main: #ffffff,
+    Light: #ffffff,
+    Dark: #ffffff
+  )
+);
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$alba-careta-cms-primary: mat.define-palette(mat.$indigo-palette);
-$alba-careta-cms-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$alba-careta-cms-primary: mat.define-palette($primary, Main, Light, Dark);
+$alba-careta-cms-accent: mat.define-palette($accent, Main, Light, Dark);
 
 // The warn palette is optional (defaults to red).
 $alba-careta-cms-warn: mat.define-palette(mat.$red-palette);
@@ -55,3 +76,28 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: #446897;
 }
+.mat-form-field {
+  .mat-input-element {
+    color: #446897;
+  }
+  .mat-form-field-label {
+    color: #446897;
+  }
+  .mat-form-field-underline {
+    background-color: #446897;
+  }
+  .mat-form-field-ripple {
+    background-color: #446897;
+  }
+  .mat-form-field-required-marker {
+    color: #446897;
+  }
+  .mat-focused {
+    color: #446897;
+  }
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #DEF2FF;
+}
+
+

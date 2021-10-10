@@ -1,0 +1,36 @@
+<div mat-dialog-title>
+  <div class="flex flex-col items-center">
+    <div class="title_ w-full flex justify-between mt-2 pb-4">
+      <h1>{{dialogTitle}}</h1>
+      <div class="flex">
+        <div>
+          <button mat-flat-button class="button_" (click)="updatePost()">GUARDAR</button>
+        </div>
+        <div class="ml-4">
+          <button mat-flat-button mat-dialog-close class="button_">CANCEL·LAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-dialog-content>
+  <div class="form_ flex flex-col w-11/12 pb-8" [formGroup]="formGroup">
+    <mat-form-field class="form_field_ w-8/12" color="accent">
+      <input  matInput type="text" placeholder="Títol" formControlName="titleFC">
+    </mat-form-field>
+    <mat-form-field class="form_field_ w-8/12" color="accent">
+      <input  matInput type="text" placeholder="Lloc" formControlName="placeFC">
+    </mat-form-field>
+    <mat-form-field class="form_field_ w-8/12 mt-4" color="accent" appearance="fill">
+      <mat-label>Data del concert</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateFC">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker color="accent"></mat-datepicker>
+    </mat-form-field>
+    <div class="flex mt-4">
+      <div class="form_field_ time_text_ mr-4">Hora del concert</div>
+      <input class="time_" type="time" placeholder="Hora" formControlName="timeFC">
+    </div>
+
+  </div>
+</mat-dialog-content>

@@ -7,14 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
+import { ReactiveFormsModule } from '@angular/forms'
+import { MatButtonModule } from '@angular/material/button'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
+
+import { AuthGuard } from './auth/auth.guard'
 
 import { HomeComponent } from './components/home/home.component'
 import { LoginComponent } from './components/login/login.component'
-
-import { AuthGuard } from './auth/auth.guard'
-import {ReactiveFormsModule} from '@angular/forms'
-import {MatButtonModule} from '@angular/material/button';
 import { ConcertsComponent } from './components/concerts/concerts.component'
+import { ConcertDialogComponent } from './components/concerts/concert-dialog/concert-dialog.component'
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDoQ6qba8Z5PK3WsjZYcl7KttHfH-A2HMk",
@@ -25,12 +33,14 @@ const firebaseConfig = {
   appId: "1:447259750871:web:b7a340aa2c74211665db92"
 }
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    ConcertsComponent
+    ConcertsComponent,
+    ConcertDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +49,13 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     AuthGuard

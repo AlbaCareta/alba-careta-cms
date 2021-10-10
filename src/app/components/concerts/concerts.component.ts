@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Concert, ConcertID } from '../../definitions'
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'
+import { MatDialog } from '@angular/material/dialog'
+import { ConcertDialogComponent } from './concert-dialog/concert-dialog.component'
+import { Observable } from 'rxjs'
+import {map} from 'rxjs/operators'
 
 @Component({
   selector: 'app-concerts',
@@ -7,9 +13,97 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConcertsComponent implements OnInit {
 
-  constructor() { }
+  private concertsCollection: AngularFirestoreCollection<Concert>;
+  private concertsItems: Observable<ConcertID[]>;
+  concertsArray: ConcertID[]
+
+  constructor(private readonly afs: AngularFirestore,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.concertsCollection =
+      this.afs.collection<Concert>('concerts', ref => ref.orderBy('date'))
+
+    this.concertsItems = this.concertsCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Concert
+        const id = a.payload.doc.id
+        return { id, ...data }
+      }))
+    )
+
+    this.concertsItems.subscribe( items => {
+      let preDataSource = []
+      preDataSource = items as ConcertID[]
+      this.concertsArray = preDataSource
+    })
+  }
+
+  createConcertDialog(): void {
+    this.dialog.open(ConcertDialogComponent, {
+      width: '640px',
+      autoFocus: false,
+      disableClose: true,
+      data: {
+        dialog_title: 'Nou concert',
+        concert: {
+          id: this.afs.createId(),
+          private: true,
+          title: '',
+          date: new Date(),
+          time: '00:00',
+          place: ''
+        }
+      }
+    })
+  }
+
+  editConcertDialog(elem: ConcertID): void {
+    this.dialog.open(ConcertDialogComponent, {
+      width: '640px',
+      autoFocus: false,
+      disableClose: true,
+      data: {
+        dialog_title: 'Editar concert',
+        concert: {
+          id: elem.id,
+          private: elem.private,
+          title: elem.title,
+          date: elem.date,
+          time: elem.time,
+          place: elem.place
+        }
+      }
+    })
+  }
+
+  deleteConcert(elem: ConcertID): void {
+    if (confirm('Esborrar concert definitivament?')) {
+      this.afs.firestore
+        .collection('concerts')
+        .doc(elem.id)
+        .delete()
+        .then()
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }
+
+  switchPrivate(elem: ConcertID) {
+    let switchValue
+    switchValue = !elem.private
+
+    this.afs
+      .collection('concerts')
+      .doc(elem.id)
+      .update({
+        private: switchValue
+      })
+      .then()
+      .catch(err => {
+        console.log(err)
+      })
   }
 
 }
