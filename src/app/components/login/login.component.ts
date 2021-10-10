@@ -37,10 +37,11 @@ export class LoginComponent implements OnInit {
         this.formGroup.get('mailFormControl').value,
         this.formGroup.get('passwordFormControl').value
       )
-        .then((value) => {
+        .then(() => {
           this.router.navigate(['']).then()
         })
         .catch(err => {
+          console.log(err)
           this.validationText = 'There is no user record corresponding to this identifier.'
           this.validationTextAnimation()
         })
