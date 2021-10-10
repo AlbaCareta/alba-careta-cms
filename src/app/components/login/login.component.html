@@ -1,0 +1,13 @@
+<div class="layout_ w-full h-full flex flex-col justify-center items-center">
+  <h1 class="h1_">Alba Careta CMS</h1>
+  <div class="flex flex-col items-center">
+    <div class="form_" [formGroup]="formGroup">
+      <input class="input_" id="email" type="email" formControlName="mailFormControl" placeholder="EMAIL" autocomplete="off">
+      <input class="input_" id="password" type="password" formControlName="passwordFormControl" placeholder="PASSWORD">
+      <button class="button_" mat-flat-button (click)="login()">LOGIN</button>
+    </div>
+    <div #alert class="alert_">
+      <div #alert_text class="alert_text_">{{validationText}}</div>
+    </div>
+  </div>
+</div>

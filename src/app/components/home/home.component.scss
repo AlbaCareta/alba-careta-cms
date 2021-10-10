@@ -1,0 +1,38 @@
+.layout_ {
+  background-color: #F1FAFF;
+}
+.top_ {
+  background-color: #DEF2FF;
+}
+.admin_opts_ {
+  background-color: #446897;
+}
+h1 {
+  @apply uppercase;
+  margin-top: 2px;
+  font-family: manrope_medium, sans-serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #013964;
+}
+.logout_ {
+  @apply uppercase mr-8 py-2;
+  width: 160px;
+  font-family: manrope_regular, sans-serif;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 4px;
+  background-color: #446897;
+  color: #DEF2FF;
+  border-radius: 0;
+}
+ul {
+  list-style: none;
+}
+li {
+  font-family: manrope_regular, sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: white;
+  cursor: pointer;
+}
