@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core'
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog'
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
 import { FormControl, FormGroup } from '@angular/forms'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
-import {ConcertID} from '../../../definitions'
+import { ConcertID } from '../../../definitions'
 
 @Component({
   selector: 'app-concert-dialog',

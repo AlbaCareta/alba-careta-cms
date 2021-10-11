@@ -4,7 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { MatDialog } from '@angular/material/dialog'
 import { ConcertDialogComponent } from './concert-dialog/concert-dialog.component'
 import { Observable } from 'rxjs'
-import {map} from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-concerts',
@@ -15,7 +15,8 @@ export class ConcertsComponent implements OnInit {
 
   private concertsCollection: AngularFirestoreCollection<Concert>;
   private concertsItems: Observable<ConcertID[]>;
-  concertsArray: ConcertID[]
+  concerts = []
+  concertsArchive = []
 
   constructor(private readonly afs: AngularFirestore,
               private dialog: MatDialog) { }
@@ -33,9 +34,20 @@ export class ConcertsComponent implements OnInit {
     )
 
     this.concertsItems.subscribe( items => {
-      let preDataSource = []
+      let preDataSource
       preDataSource = items as ConcertID[]
-      this.concertsArray = preDataSource
+
+      const dateRef = new Date()
+      dateRef.setHours(-24, 0, 0, 0)
+
+      for (const i of preDataSource) {
+        const concertDate = new Date (i.date.seconds * 1000)
+        if (dateRef.getTime() < concertDate.getTime()) {
+          this.concerts.push(i)
+        } else {
+          this.concertsArchive.push(i)
+        }
+      }
     })
   }
 
