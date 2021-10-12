@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center mt-32">
+<div class="flex flex-col items-center mt-40">
   <div class="top_ w-10/12 pb-4 z-10">
     <div class="flex justify-between">
       <h2>PROPERS CONCERTS</h2>
@@ -15,8 +15,31 @@
         <div class="flex items-center mr-8">
           <div class="private_flex_ flex items-center">
             <mat-checkbox color="accent" [checked]="!item['private']" (click)="switchPrivate(item)"></mat-checkbox>
-            <div class="private_text_ ml-2">PUBLIC</div>
+            <div class="private_text_ ml-2">PUBLICAR</div>
           </div>
+          <div class="ml-8">
+            <button mat-flat-button class="button_s_"
+                    (click)="editConcertDialog(item)">EDITAR</button>
+          </div>
+          <div class="ml-4">
+            <button mat-flat-button class="button_s_"
+                    (click)="deleteConcert(item)">ESBORRAR</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="top_ w-10/12 mt-16 pb-4 z-10">
+    <div class="flex justify-between">
+      <h2>ARXIU CONCERTS</h2>
+    </div>
+  </div>
+  <div class="flex flex-col w-10/12 mt-8">
+    <ng-container *ngFor="let item of concertsArchive">
+      <div class="concert_ flex justify-between items-center relative w-full h-16 mb-4">
+        <h3 class="w-2/6 ml-8">{{item.title}}</h3>
+        <h3 class="ml-4">{{item.date['seconds'] * 1000 | date:'dd/MM/yyyy'}}</h3>
+        <div class="flex items-center mr-8">
           <div class="ml-8">
             <button mat-flat-button class="button_s_"
                     (click)="editConcertDialog(item)">EDITAR</button>

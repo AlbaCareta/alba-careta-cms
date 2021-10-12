@@ -48,6 +48,9 @@ export class ConcertsComponent implements OnInit {
           this.concertsArchive.push(i)
         }
       }
+
+      this.concerts.reverse()
+      this.concertsArchive.reverse()
     })
   }
 
