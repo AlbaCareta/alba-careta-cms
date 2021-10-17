@@ -6,13 +6,13 @@
     </div>
     <div class="admin_opts_ fixed w-full h-8 mt-16 bg-gray-400">
       <ul class="flex items-center h-full ml-8">
-        <li class="mr-8">CONCERTS</li>
+        <li class="mr-8" [routerLink]="['/concerts/']">CONCERTS</li>
+        <li class="mr-8" [routerLink]="['/projectes/']">PROJECTES</li>
       </ul>
     </div>
   </div>
   <div class="z-0">
     <router-outlet></router-outlet>
   </div>
-
 </div>
 

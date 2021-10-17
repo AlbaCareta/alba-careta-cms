@@ -13,8 +13,8 @@ import { map } from 'rxjs/operators'
 })
 export class ConcertsComponent implements OnInit {
 
-  private concertsCollection: AngularFirestoreCollection<Concert>;
-  private concertsItems: Observable<ConcertID[]>;
+  private concertsCollection: AngularFirestoreCollection<Concert>
+  private concertsItems: Observable<ConcertID[]>
   concerts = []
   concertsArchive = []
 
@@ -34,6 +34,8 @@ export class ConcertsComponent implements OnInit {
     )
 
     this.concertsItems.subscribe( items => {
+      this.concerts = []
+      this.concertsArchive = []
       let preDataSource
       preDataSource = items as ConcertID[]
 

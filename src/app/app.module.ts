@@ -8,6 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { ReactiveFormsModule } from '@angular/forms'
+import { AngularEditorModule } from '@kolkov/angular-editor'
+import { HttpClientModule } from '@angular/common/http'
+import { ImageCropperModule } from 'ngx-image-cropper'
+import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatCheckboxModule } from '@angular/material/checkbox'
@@ -17,20 +21,25 @@ import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 
 import { AuthGuard } from './auth/auth.guard'
+import { StorageService } from './services/storage.service'
+import { ProjectesService } from './services/projectes.service'
 
 import { HomeComponent } from './components/home/home.component'
 import { LoginComponent } from './components/login/login.component'
 import { ConcertsComponent } from './components/concerts/concerts.component'
 import { ConcertDialogComponent } from './components/concerts/concert-dialog/concert-dialog.component'
+import { ProjectesComponent } from './components/projectes/projectes.component'
+import { ProjecteDialogComponent } from './components/projectes/projecte-dialog/projecte-dialog.component';
+import { ImageDialogComponent } from './components/image-dialog/image-dialog.component'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDoQ6qba8Z5PK3WsjZYcl7KttHfH-A2HMk",
-  authDomain: "alba-careta.firebaseapp.com",
-  projectId: "alba-careta",
-  storageBucket: "alba-careta.appspot.com",
-  messagingSenderId: "447259750871",
-  appId: "1:447259750871:web:b7a340aa2c74211665db92"
+  apiKey: 'AIzaSyDoQ6qba8Z5PK3WsjZYcl7KttHfH-A2HMk',
+  authDomain: 'alba-careta.firebaseapp.com',
+  projectId: 'alba-careta',
+  storageBucket: 'alba-careta.appspot.com',
+  messagingSenderId: '447259750871',
+  appId: '1:447259750871:web:b7a340aa2c74211665db92'
 }
 
 
@@ -40,7 +49,10 @@ const firebaseConfig = {
     HomeComponent,
     LoginComponent,
     ConcertsComponent,
-    ConcertDialogComponent
+    ConcertDialogComponent,
+    ProjectesComponent,
+    ProjecteDialogComponent,
+    ImageDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,10 +67,16 @@ const firebaseConfig = {
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    DragDropModule,
+    AngularEditorModule,
+    HttpClientModule,
+    ImageCropperModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    StorageService,
+    ProjectesService
   ],
   bootstrap: [AppComponent]
 })

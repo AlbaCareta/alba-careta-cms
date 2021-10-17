@@ -67,7 +67,6 @@ $alba-careta-cms-theme: mat.define-light-theme((
   font-family: "manrope_regular";
   src: url("assets/fonts/Manrope-Regular.woff") format("woff");
 }
-
 html, body {
   height: 100%;
 }
@@ -75,6 +74,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   background-color: #446897;
+}
+:focus {
+  outline: none;
 }
 .mat-form-field {
   .mat-input-element {
