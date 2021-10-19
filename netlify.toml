@@ -1,6 +1,6 @@
 [build]
-  publish = "dist/"
-  command = "ng build --prod"
+  publish = "dist/alba-careta-cms"
+  command = "ng build --configuration production"
 [[redirects]]
   from = "/*"
   to = "/index.html"
