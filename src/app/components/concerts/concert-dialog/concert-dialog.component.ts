@@ -27,20 +27,23 @@ export class ConcertDialogComponent implements OnInit {
       title: this.data.concert.title,
       date: this.data.concert.date,
       time: this.data.concert.time,
-      place: this.data.concert.place
+      place: this.data.concert.place,
+      link: this.data.concert.link
     }
     // Form
     this.formGroup = new FormGroup({
       titleFC: new FormControl('', []),
       placeFC: new FormControl('', []),
       dateFC: new FormControl('', []),
-      timeFC: new FormControl('', [])
+      timeFC: new FormControl('', []),
+      linkFC: new FormControl('', [])
     })
 
     this.formGroup.get('titleFC').setValue(this.concert.title)
     this.formGroup.get('placeFC').setValue(this.concert.place)
     this.formGroup.get('dateFC').setValue(this.concert.date)
     this.formGroup.get('timeFC').setValue(this.concert.time)
+    this.formGroup.get('linkFC').setValue(this.concert.link)
 
     this.formGroup.get('titleFC').valueChanges.subscribe(value => {
       this.concert.title = value
@@ -53,6 +56,9 @@ export class ConcertDialogComponent implements OnInit {
     })
     this.formGroup.get('timeFC').valueChanges.subscribe(value => {
       this.concert.time = value
+    })
+    this.formGroup.get('linkFC').valueChanges.subscribe(value => {
+      this.concert.link = value
     })
   }
 

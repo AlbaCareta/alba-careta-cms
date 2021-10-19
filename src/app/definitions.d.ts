@@ -4,6 +4,7 @@ export interface Concert {
   date: Date
   time: string
   place: string
+  link: string
 }
 export interface ConcertID extends Concert {
   id: string

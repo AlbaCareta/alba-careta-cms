@@ -16,10 +16,10 @@
 <mat-dialog-content>
   <div class="form_ flex flex-col w-11/12 pb-8" [formGroup]="formGroup">
     <mat-form-field class="form_field_ w-8/12" color="accent">
-      <input  matInput type="text" placeholder="Títol" formControlName="titleFC">
+      <input matInput type="text" placeholder="Títol" formControlName="titleFC">
     </mat-form-field>
     <mat-form-field class="form_field_ w-8/12" color="accent">
-      <input  matInput type="text" placeholder="Lloc" formControlName="placeFC">
+      <input matInput type="text" placeholder="Lloc" formControlName="placeFC">
     </mat-form-field>
     <mat-form-field class="form_field_ w-8/12 mt-4" color="accent" appearance="fill">
       <mat-label>Data del concert</mat-label>
@@ -31,6 +31,8 @@
       <div class="form_field_ time_text_ mr-4">Hora del concert</div>
       <input class="time_" type="time" placeholder="Hora" formControlName="timeFC">
     </div>
-
+    <mat-form-field class="form_field_ w-8/12 mt-8" color="accent">
+      <input matInput type="text" placeholder="Link" formControlName="linkFC">
+    </mat-form-field>
   </div>
 </mat-dialog-content>

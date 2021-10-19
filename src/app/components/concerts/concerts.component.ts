@@ -69,7 +69,8 @@ export class ConcertsComponent implements OnInit {
           title: '',
           date: new Date(),
           time: '00:00',
-          place: ''
+          place: '',
+          link: ''
         }
       }
     })
@@ -88,7 +89,8 @@ export class ConcertsComponent implements OnInit {
           title: elem.title,
           date: elem.date,
           time: elem.time,
-          place: elem.place
+          place: elem.place,
+          link: elem.link
         }
       }
     })
