@@ -1,0 +1,16 @@
+<div class="flex flex-col items-center">
+  <div class="top_">
+    <h1>BIOGRAFIA</h1>
+    <button mat-flat-button (click)="guardarCanvis()">GUARDAR CANVIS</button>
+  </div>
+  <div class="flex flex-col w-10/12 mt-60 pb-24 mx-auto" [formGroup]="formGroup">
+    <h2>Català</h2>
+    <div class="w-full mt-8">
+      <angular-editor [config]="editorConfig" formControlName="editor_ca"></angular-editor>
+    </div>
+    <h2 class="mt-16">Castellà</h2>
+    <div class="w-full mt-8">
+      <angular-editor [config]="editorConfig" formControlName="editor_es"></angular-editor>
+    </div>
+  </div>
+</div>

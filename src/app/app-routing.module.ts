@@ -5,11 +5,13 @@ import { AuthGuard } from './auth/auth.guard'
 import { LoginComponent } from './components/login/login.component'
 import { ConcertsComponent } from './components/concerts/concerts.component'
 import { ProjectesComponent } from './components/projectes/projectes.component'
+import { BiografiaComponent } from './components/biografia/biografia.component'
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard], children: [
       {path: 'concerts', component: ConcertsComponent},
-      {path: 'projectes', component: ProjectesComponent}
+      {path: 'projectes', component: ProjectesComponent},
+      {path: 'biografia', component: BiografiaComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

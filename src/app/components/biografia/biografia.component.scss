@@ -1,0 +1,29 @@
+.top_ {
+  @apply flex justify-between items-center fixed w-11/12 mx-auto pt-32 pb-4 z-10;
+  background-color: #F1FAFF;
+  border-bottom: 1px solid #013964;
+}
+h1 {
+  @apply uppercase;
+  font-family: marbry_regular, sans-serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #013964;
+}
+h2 {
+  @apply uppercase;
+  font-family: marbry_regular, sans-serif;
+  font-size: 24px;
+  color: #013964;
+}
+button {
+  @apply uppercase py-2 px-8;
+  font-family: manrope_regular, sans-serif;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 6px;
+  background-color: #DEF2FF;
+  border-radius: 0;
+  border: 1px solid #013964;
+  color: #013964;
+}

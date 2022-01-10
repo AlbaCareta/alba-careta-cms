@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 import { AuthGuard } from './auth/auth.guard'
 import { StorageService } from './services/storage.service'
@@ -30,7 +31,8 @@ import { ConcertsComponent } from './components/concerts/concerts.component'
 import { ConcertDialogComponent } from './components/concerts/concert-dialog/concert-dialog.component'
 import { ProjectesComponent } from './components/projectes/projectes.component'
 import { ProjecteDialogComponent } from './components/projectes/projecte-dialog/projecte-dialog.component';
-import { ImageDialogComponent } from './components/image-dialog/image-dialog.component'
+import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
+import { BiografiaComponent } from './components/biografia/biografia.component'
 
 
 const firebaseConfig = {
@@ -52,7 +54,8 @@ const firebaseConfig = {
     ConcertDialogComponent,
     ProjectesComponent,
     ProjecteDialogComponent,
-    ImageDialogComponent
+    ImageDialogComponent,
+    BiografiaComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ const firebaseConfig = {
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
     DragDropModule,
     AngularEditorModule,
     HttpClientModule,
