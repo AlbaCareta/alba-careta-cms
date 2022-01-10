@@ -65,9 +65,9 @@ export class BiografiaComponent implements OnInit {
         this.bios = docSnapshot.data()
       })
       .then(() => {
-        this.formGroup.get('editor_ca').setValue(this.bios['bio_ca'])
-        this.formGroup.get('editor_es').setValue(this.bios['bio_es'])
-        this.formGroup.get('editor_en').setValue(this.bios['bio_en'])
+        this.formGroup.get('editor_ca').setValue(this.bios['ca'])
+        this.formGroup.get('editor_es').setValue(this.bios['es'])
+        this.formGroup.get('editor_en').setValue(this.bios['en'])
       })
   }
 
@@ -76,9 +76,9 @@ export class BiografiaComponent implements OnInit {
       .collection('CMS')
       .doc('biografia')
       .update({
-        bio_ca: this.formGroup.get('editor_ca').value,
-        bio_es: this.formGroup.get('editor_es').value,
-        bio_en: this.formGroup.get('editor_en').value
+        ca: this.formGroup.get('editor_ca').value,
+        es: this.formGroup.get('editor_es').value,
+        en: this.formGroup.get('editor_en').value
       })
       .then(() => {
         this.snackBar.open('Canvis guardats', 'OK', {
