@@ -53,7 +53,8 @@ export class BiografiaComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       editor_ca: new FormControl('', []),
-      editor_es: new FormControl('', [])
+      editor_es: new FormControl('', []),
+      editor_en: new FormControl('', [])
     })
 
     this.afs.firestore
@@ -66,6 +67,7 @@ export class BiografiaComponent implements OnInit {
       .then(() => {
         this.formGroup.get('editor_ca').setValue(this.bios['bio_ca'])
         this.formGroup.get('editor_es').setValue(this.bios['bio_es'])
+        this.formGroup.get('editor_en').setValue(this.bios['bio_en'])
       })
   }
 
@@ -75,7 +77,8 @@ export class BiografiaComponent implements OnInit {
       .doc('biografia')
       .update({
         bio_ca: this.formGroup.get('editor_ca').value,
-        bio_es: this.formGroup.get('editor_es').value
+        bio_es: this.formGroup.get('editor_es').value,
+        bio_en: this.formGroup.get('editor_en').value
       })
       .then(() => {
         this.snackBar.open('Canvis guardats', 'OK', {
