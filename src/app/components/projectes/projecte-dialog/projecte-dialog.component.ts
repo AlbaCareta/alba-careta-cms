@@ -63,6 +63,7 @@ export class ProjecteDialogComponent implements OnInit {
     // Form
     this.formGroup = new FormGroup({
       titleFC: new FormControl('', []),
+      urlFC: new FormControl('', []),
       textCAFC: new FormControl('', []),
       textESFC: new FormControl('', []),
       textENFC: new FormControl('', []),
@@ -73,9 +74,10 @@ export class ProjecteDialogComponent implements OnInit {
     })
 
     this.formGroup.get('titleFC').setValue(this.projectesService.projecte.title)
-    this.formGroup.get('textCAFC').setValue(this.projectesService.projecte.text_ca)
-    this.formGroup.get('textESFC').setValue(this.projectesService.projecte.text_es)
-    this.formGroup.get('textENFC').setValue(this.projectesService.projecte.text_en)
+    this.formGroup.get('urlFC').setValue(this.projectesService.projecte.url)
+    this.formGroup.get('textCAFC').setValue(this.projectesService.projecte.text.ca)
+    this.formGroup.get('textESFC').setValue(this.projectesService.projecte.text.es)
+    this.formGroup.get('textENFC').setValue(this.projectesService.projecte.text.en)
     this.formGroup.get('linkFC').setValue(this.projectesService.projecte.link)
     this.formGroup.get('instagramFC').setValue(this.projectesService.projecte.instagram)
     this.formGroup.get('spotifyFC').setValue(this.projectesService.projecte.spotify)
@@ -84,14 +86,17 @@ export class ProjecteDialogComponent implements OnInit {
     this.formGroup.get('titleFC').valueChanges.subscribe(value => {
       this.projectesService.projecte.title = value
     })
+    this.formGroup.get('urlFC').valueChanges.subscribe(value => {
+      this.projectesService.projecte.url = value
+    })
     this.formGroup.get('textCAFC').valueChanges.subscribe(value => {
-      this.projectesService.projecte.text_ca = value
+      this.projectesService.projecte.text.ca = value
     })
     this.formGroup.get('textESFC').valueChanges.subscribe(value => {
-      this.projectesService.projecte.text_es = value
+      this.projectesService.projecte.text.es = value
     })
     this.formGroup.get('textENFC').valueChanges.subscribe(value => {
-      this.projectesService.projecte.text_en = value
+      this.projectesService.projecte.text.en = value
     })
     this.formGroup.get('linkFC').valueChanges.subscribe(value => {
       this.projectesService.projecte.link = value

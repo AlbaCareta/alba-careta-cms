@@ -13,9 +13,12 @@ export interface Projecte {
   private: boolean
   order: number
   title: string
-  text_ca: string
-  text_es: string
-  text_en: string
+  url: string
+  text: {
+    ca: string
+    es: string
+    en: string
+  }
   image: string
   link: string
   instagram: string
