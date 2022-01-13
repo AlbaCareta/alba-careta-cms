@@ -1,0 +1,43 @@
+<div mat-dialog-title>
+  <div class="flex flex-col items-center">
+    <div class="title_ w-full flex justify-between mt-2 pb-4">
+      <h1>{{dialogTitle}}</h1>
+      <div class="flex">
+        <div>
+          <button mat-flat-button class="button_" (click)="updateAlbum()">GUARDAR</button>
+        </div>
+        <div class="ml-4">
+          <button mat-flat-button mat-dialog-close class="button_">CANCEL·LAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-dialog-content>
+  <div class="form_ flex flex-col w-11/12 pb-8" [formGroup]="formGroup">
+    <mat-form-field class="form_field_ w-8/12 mt-2" color="accent">
+      <input matInput type="text" placeholder="Nom del Álbum" formControlName="titleFC">
+    </mat-form-field>
+    <mat-form-field class="form_field_ w-8/12 mt-2" color="accent">
+      <input matInput type="text" placeholder="Artista del Álbum" formControlName="artistFC">
+    </mat-form-field>
+    <mat-form-field class="form_field_ w-8/12 mt-2" color="accent">
+      <input matInput type="text" placeholder="Link del Álbum" formControlName="linkFC">
+    </mat-form-field>
+    <div class="image_">
+      <h3>Imatge</h3>
+      <div class="image_flex_">
+        <img [src]="imagePreview" alt="">
+        <div class="image_buttons_flex_">
+          <div>
+            <button mat-flat-button class="button_" (click)="openImageDialog()">Seleccionar imatge</button>
+          </div>
+          <div class="mt-2">
+            <button mat-flat-button class="button_" (click)="deleteImage()">Borrar imatge</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+

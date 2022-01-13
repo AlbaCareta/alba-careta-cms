@@ -24,15 +24,19 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { AuthGuard } from './auth/auth.guard'
 import { StorageService } from './services/storage.service'
 import { ProjectesService } from './services/projectes.service'
+import { AlbumsService } from './services/albums.service'
 
 import { HomeComponent } from './components/home/home.component'
 import { LoginComponent } from './components/login/login.component'
 import { ConcertsComponent } from './components/concerts/concerts.component'
 import { ConcertDialogComponent } from './components/concerts/concert-dialog/concert-dialog.component'
 import { ProjectesComponent } from './components/projectes/projectes.component'
-import { ProjecteDialogComponent } from './components/projectes/projecte-dialog/projecte-dialog.component';
-import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
+import { ProjecteDialogComponent } from './components/projectes/projecte-dialog/projecte-dialog.component'
+import { ImageDialogComponent } from './components/image-dialog/image-dialog.component'
 import { BiografiaComponent } from './components/biografia/biografia.component'
+import { AlbumsComponent } from './components/albums/albums.component';
+import { AlbumsDialogComponent } from './components/albums/albums-dialog/albums-dialog.component';
+import { AlbumsImageDialogComponent } from './components/albums/albums-image-dialog/albums-image-dialog.component'
 
 
 const firebaseConfig = {
@@ -55,7 +59,10 @@ const firebaseConfig = {
     ProjectesComponent,
     ProjecteDialogComponent,
     ImageDialogComponent,
-    BiografiaComponent
+    BiografiaComponent,
+    AlbumsComponent,
+    AlbumsDialogComponent,
+    AlbumsImageDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +87,8 @@ const firebaseConfig = {
   providers: [
     AuthGuard,
     StorageService,
-    ProjectesService
+    ProjectesService,
+    AlbumsService
   ],
   bootstrap: [AppComponent]
 })

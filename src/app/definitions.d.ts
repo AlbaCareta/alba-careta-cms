@@ -28,3 +28,14 @@ export interface Projecte {
 export interface ProjecteID extends Projecte {
   id: string
 }
+export interface Album {
+  private: boolean
+  order: number
+  title: string
+  artist: string
+  image: string
+  link: string
+}
+export interface AlbumID extends Album {
+  id: string
+}
