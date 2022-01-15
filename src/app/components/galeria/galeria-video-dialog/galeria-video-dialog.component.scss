@@ -1,0 +1,36 @@
+::ng-deep .mat-dialog-container {
+  border-radius: 0;
+}
+.title_ {
+  border-bottom: 1px solid #013964;
+}
+h1 {
+  @apply uppercase mt-1;
+  font-family: manrope_medium, sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #013964;
+}
+h3 {
+  font-family: manrope_regular, sans-serif;
+  font-size: 14px;
+  color: #013964;
+}
+.button_ {
+  @apply uppercase py-2;
+  font-family: manrope_regular, sans-serif;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 4px;
+  border-radius: 0;
+  border: 1px solid #013964;
+  background-color: #DEF2FF;
+  color: #013964;
+}
+.form_ {
+  @apply mx-auto;
+}
+.form_field_ {
+  font-family: manrope_regular, sans-serif;
+  font-size: 14px;
+}

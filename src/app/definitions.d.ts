@@ -39,3 +39,13 @@ export interface Album {
 export interface AlbumID extends Album {
   id: string
 }
+export interface Galeria {
+  private: boolean
+  order: number
+  title: string
+  image: string
+  video: string
+}
+export interface GaleriaID extends Galeria {
+  id: string
+}

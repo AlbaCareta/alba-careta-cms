@@ -1,0 +1,42 @@
+<div class="flex flex-col items-center mt-40">
+  <div class="top_ w-10/12 pb-4 z-10">
+    <div class="flex justify-between">
+      <h2>GALERIA</h2>
+      <div class="self-center">
+        <div class="flex">
+          <div class="mr-4">
+            <button mat-flat-button class="button_" (click)="addItem('image')">AFEGIR IMATGE</button>
+          </div>
+          <div>
+            <button mat-flat-button class="button_" (click)="addItem('video')">AFEGIR VIDEO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col w-10/12 mt-8" cdkDropList (cdkDropListDropped)="onOrderDrop($event)">
+    <ng-container *ngFor="let item of galeria">
+      <div class="flex justify-between items-center relative w-full py-4 mb-4 bg-gray-200" cdkDrag>
+        <div class="flex items-center">
+          <h3 class="w-2/6 mx-8">{{item['order']}}</h3>
+          <ng-template [ngIf]="item['image'] !== ''">
+            <img class="image_" src="{{item['image']}}" alt="">
+          </ng-template>
+          <ng-template [ngIf]="item['video'] !== ''">
+            <div class="video_">Video Id: {{item['video']}}</div>
+          </ng-template>
+        </div>
+        <div class="flex items-center mr-8">
+          <div class="private_flex_ flex items-center">
+            <mat-checkbox color="accent" [checked]="!item['private']" (click)="switchPrivate(item)"></mat-checkbox>
+            <div class="private_text_ ml-2">PUBLICAR</div>
+          </div>
+          <div class="ml-4">
+            <button mat-flat-button class="button_s_"
+                    (click)="deleteItem(item)">ESBORRAR</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

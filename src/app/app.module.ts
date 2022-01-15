@@ -25,6 +25,7 @@ import { AuthGuard } from './auth/auth.guard'
 import { StorageService } from './services/storage.service'
 import { ProjectesService } from './services/projectes.service'
 import { AlbumsService } from './services/albums.service'
+import { GaleriaService } from './services/galeria.service'
 
 import { HomeComponent } from './components/home/home.component'
 import { LoginComponent } from './components/login/login.component'
@@ -34,9 +35,13 @@ import { ProjectesComponent } from './components/projectes/projectes.component'
 import { ProjecteDialogComponent } from './components/projectes/projecte-dialog/projecte-dialog.component'
 import { ImageDialogComponent } from './components/image-dialog/image-dialog.component'
 import { BiografiaComponent } from './components/biografia/biografia.component'
-import { AlbumsComponent } from './components/albums/albums.component';
-import { AlbumsDialogComponent } from './components/albums/albums-dialog/albums-dialog.component';
+import { AlbumsComponent } from './components/albums/albums.component'
+import { AlbumsDialogComponent } from './components/albums/albums-dialog/albums-dialog.component'
 import { AlbumsImageDialogComponent } from './components/albums/albums-image-dialog/albums-image-dialog.component'
+import { GaleriaComponent } from './components/galeria/galeria.component';
+import { GaleriaImageDialogComponent } from './components/galeria/galeria-image-dialog/galeria-image-dialog.component';
+import { GaleriaVideoDialogComponent } from './components/galeria/galeria-video-dialog/galeria-video-dialog.component';
+import { GaleriaImageEditorComponent } from './components/galeria/galeria-image-editor/galeria-image-editor.component'
 
 
 const firebaseConfig = {
@@ -62,7 +67,11 @@ const firebaseConfig = {
     BiografiaComponent,
     AlbumsComponent,
     AlbumsDialogComponent,
-    AlbumsImageDialogComponent
+    AlbumsImageDialogComponent,
+    GaleriaComponent,
+    GaleriaImageDialogComponent,
+    GaleriaVideoDialogComponent,
+    GaleriaImageEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +97,8 @@ const firebaseConfig = {
     AuthGuard,
     StorageService,
     ProjectesService,
-    AlbumsService
+    AlbumsService,
+    GaleriaService
   ],
   bootstrap: [AppComponent]
 })

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.router.navigate(['/biografia/']).then()
+    this.router.navigate(['/galeria/']).then()
   }
 
   logout() {

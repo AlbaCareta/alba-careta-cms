@@ -1,0 +1,25 @@
+<mat-dialog-content>
+  <input #image_input hidden type="file" (change)="fileChangeEvent($event)"/>
+  <div class="flex justify-between">
+    <image-cropper class="image_cropper_"
+                   [imageChangedEvent]="imageChangedEvent"
+                   (imageCropped)="imageCropped($event)"
+                   [maintainAspectRatio]="false"
+                   format="jpeg">
+    </image-cropper>
+    <div class="flex flex-col justify-between">
+      <div class="flex flex-col">
+        <div>
+          <button class="button_" mat-flat-button (click)="image_input.click()">SELECCIONAR IMATGE</button>
+        </div>
+        <div class="mt-4">
+          <button [disabled]="buttonDisabled" class="button_" mat-flat-button (click)="uploadImage()">GUARDAR</button>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <div class="preview_title_">PREVIEW</div>
+        <img class="preview_image_" src="{{croppedImage}}" alt="">
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

@@ -1,28 +1,26 @@
 import { Component, OnInit } from '@angular/core'
-import { MatDialogRef } from '@angular/material/dialog'
 import { StorageService } from '../../../services/storage.service'
+import { MatDialogRef } from '@angular/material/dialog'
+import { GaleriaService } from '../../../services/galeria.service'
 import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper'
-import { AlbumsService}  from '../../../services/albums.service'
-
 
 @Component({
-  selector: 'app-albums-image-dialog',
-  templateUrl: './albums-image-dialog.component.html',
-  styleUrls: ['./albums-image-dialog.component.scss']
+  selector: 'app-galeria-image-editor',
+  templateUrl: './galeria-image-editor.component.html',
+  styleUrls: ['./galeria-image-editor.component.scss']
 })
-export class AlbumsImageDialogComponent implements OnInit {
+export class GaleriaImageEditorComponent implements OnInit {
 
   imageChangedEvent: any = ''
   croppedImage: any = ''
 
   buttonDisabled = false
 
-  constructor(private albumsService: AlbumsService,
+  constructor(private galeriaService: GaleriaService,
               private storageService: StorageService,
-              private dialogRef: MatDialogRef<AlbumsImageDialogComponent>) {
-  }
+              private dialogRef: MatDialogRef<GaleriaImageEditorComponent>) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   fileChangeEvent(event: any): void {
@@ -37,11 +35,11 @@ export class AlbumsImageDialogComponent implements OnInit {
     if (this.croppedImage !== '') {
       const imageFile = base64ToFile(this.croppedImage)
       this.storageService
-        .uploadFile('/albums/', imageFile, this.albumsService.album.id)
+        .uploadFile('/galeria/', imageFile, this.galeriaService.galeriaItem.id)
         .subscribe((uploaded) => {
           if (uploaded) {
-            this.albumsService.album.image = this.storageService.finalFileURL
-            this.albumsService.imageUploaded.next(true)
+            this.galeriaService.galeriaItem.image = this.storageService.finalFileURL
+            this.galeriaService.imageUploaded.next(true)
             this.dialogRef.close()
           }
         })

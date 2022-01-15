@@ -7,13 +7,15 @@ import { ConcertsComponent } from './components/concerts/concerts.component'
 import { ProjectesComponent } from './components/projectes/projectes.component'
 import { BiografiaComponent } from './components/biografia/biografia.component'
 import { AlbumsComponent } from './components/albums/albums.component'
+import { GaleriaComponent } from './components/galeria/galeria.component'
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard], children: [
       {path: 'concerts', component: ConcertsComponent},
       {path: 'projectes', component: ProjectesComponent},
       {path: 'biografia', component: BiografiaComponent},
-      {path: 'albums', component: AlbumsComponent}
+      {path: 'albums', component: AlbumsComponent},
+      {path: 'galeria', component: GaleriaComponent}
     ]
   },
   {path: 'login', component: LoginComponent}
